@@ -76,7 +76,7 @@ public class MovieService {
 		try{
 			
 			
-			response = Unirest.get("http://api.traileraddict.com/")
+			response = Unirest.get("http://api.traileraddict.com")
 					.queryString("format", "xml")
 					.queryString("actor", movieTitle).asJson();
 			
