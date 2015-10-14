@@ -1,6 +1,6 @@
 package com.moviestar.service;
 /**
- * Fick något att funka iaf
+ * Fick något att funka iaf  nudå!
  */
 import java.io.IOException;
 import java.util.Map;
@@ -29,43 +29,72 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 @Path("/collection")
 public class MovieService {
 
-	// @Path("/bestmovie")
-	// @GET
-	// @Produces(MediaType.APPLICATION_JSON)
-	// public Response getMovie(){
-	// Response rs = null;
-	//
-	//
-	// Movie movieObject = new Movie();
-	// JSONArray ja = new JSONArray();
-	// JSONObject jo = new JSONObject();
-	// ToJSON converter = new ToJSON();
-	// Map<String, Object> map;
-	//
-	// //Skapa ett objekt
-	// movieObject.setActor("Kiera Knightley");
-	// movieObject.setTitle("Pirates of the carribean");
-	// movieObject.setDirector("Who knows");
-	// movieObject.setPlot("Johnny Depp takes on the world again");
-	// map = movieObject.getMap();
-	//
-	// jo = converter.toJSONArray(map);
-	// ja.put(jo);
-	//
-	// movieObject.setActor("Billy Boo");
-	// movieObject.setTitle("And on he take sit again");
-	// movieObject.setDirector("Willy Weiner");
-	// movieObject.setPlot("Three en are stuck in the dessert....");
-	// map = movieObject.getMap();
-	//
-	// jo = converter.toJSONArray(map);
-	// ja.put(jo);
-	//
-	// rs = Response.ok(ja.toString()).build();
-	//
-	// return rs;
-	// }
+//	 @Path("/bestmovie")
+//	 @GET
+//	 @Produces(MediaType.APPLICATION_JSON)
+//	 public Response getMovie(){
+//	 Response rs = null;
+//	
+//	
+//	 Movie movieObject = new Movie();
+//	 JSONArray ja = new JSONArray();
+//	 JSONObject jo = new JSONObject();
+//	 ToJSON converter = new ToJSON();
+//	 Map<String, Object> map;
+//	
+//	 //Skapa ett objekt
+//	 movieObject.setActor("Kiera Knightley");
+//	 movieObject.setTitle("Pirates of the carribean");
+//	 movieObject.setDirector("Who knows");
+//	 movieObject.setPlot("Johnny Depp takes on the world again");
+//	 map = movieObject.getMap();
+//	
+//	 jo = converter.toJSONArray(map);
+//	 ja.put(jo);
+//	
+//	 movieObject.setActor("Billy Boo");
+//	 movieObject.setTitle("And on he take sit again");
+//	 movieObject.setDirector("Willy Weiner");
+//	 movieObject.setPlot("Three en are stuck in the dessert....");
+//	 map = movieObject.getMap();
+//	
+//	 jo = converter.toJSONArray(map);
+//	 ja.put(jo);
+//	
+//	 rs = Response.ok(ja.toString()).build();
+//	
+//	 return rs;
+//	 }
 
+	@Path("/trailer/{movieTitle}")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	public String getTrailer(@PathParam("movieTitle") String movieTitle){
+		String title = "";
+		HttpResponse<JsonNode> response;
+		
+		try{
+			
+			
+			response = Unirest.get("http://api.traileraddict.com/")
+					.queryString("format", "xml")
+					.queryString("actor", movieTitle).asJson();
+			
+			JsonNode json = response.getBody();
+			JSONObject envelope = json.getObject();
+			
+			System.out.println(response.getBody());
+			title = envelope.getString("title");
+
+			
+		} catch (UnirestException e) {
+			e.printStackTrace();
+		}
+		return title;
+
+	}
+	
+	
 	@Path("/{movietitle}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
