@@ -1,5 +1,10 @@
 package com.moviestar.entity;
 
+/**
+ * Hej Emma!
+ * @author Evy
+ *
+ */
 public class Envelope {
 	private Trailer trailer;
 
