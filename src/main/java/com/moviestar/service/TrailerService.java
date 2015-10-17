@@ -21,7 +21,6 @@ import org.json.XML;
 
 import com.google.gson.Gson;
 import com.moviestar.entity.Envelope;
-import com.moviestar.entity.Movie;
 import com.moviestar.entity.Trailer;
 
 /*

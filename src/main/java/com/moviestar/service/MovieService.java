@@ -130,7 +130,9 @@ public class MovieService {
 			year = envelope.getString("Year");
 			director = envelope.getString("Director");
 			plot = envelope.getString("Plot");
-			result = "Title: " + title + "\nYear: " + year + "\nDirector: " + "\nPlot: " + plot;
+		//	result = "Title: " + title + "\nYear: " + year + "\nDirector: " + "\nPlot: " + plot;
+			
+			result = envelope.toString();
 
 			// Unirest.shutdown();
 		} catch (UnirestException e) {
