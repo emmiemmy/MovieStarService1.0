@@ -26,6 +26,11 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
+/**
+ * 
+ * @author emmashakespeare, evelyn, juicy
+ *
+ */
 @Path("/collection")
 public class MovieService {
 
