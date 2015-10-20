@@ -1,7 +1,7 @@
 package com.moviestar.entity;
 
 /**
- * Hej Emma!
+ * Bara testar...
  * @author Evy
  *
  */
