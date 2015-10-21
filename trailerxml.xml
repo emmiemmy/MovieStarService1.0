@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<trailers>
+	<trailer>
+
+		<title><![CDATA[Harry Potter and The Order of the Phoenix: Trailer]]></title>
+
+		<link>http://www.traileraddict.com</link>
+
+		<video_title>Trailer</video_title>
+		http://v.traileraddict.com/:trailerID
+
+		<trailerID>12</trailerID>
+		<embed_standard><![CDATA[<iframe width="640" height="360" src="http://v.traileraddict.com/12" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" frameborder="0"></iframe>]]>
+		</embed_standard>
+
+		<embed_small><![CDATA[<iframe width="360" height="204" src="http://v.traileraddict.com/12" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" frameborder="0"></iframe>]]>
+		</embed_small>
+
+		<embed_medium><![CDATA[<iframe width="854" height="480" src="http://v.traileraddict.com/12" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" frameborder="0"></iframe>]]>
+		</embed_medium>
+
+		<embed_large><![CDATA[<iframe width="1024" height="576" src="http://v.traileraddict.com/12" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no" frameborder="0"></iframe>]]>
+		</embed_large>
+
+		<film><![CDATA[Harry Potter and The Order of the Phoenix]]></film>
+
+		<director>David Yates</director>
+
+		<writer>Michael Goldenberg</writer>
+
+		<cast>Daniel Radcliffe, Emma Watson, Alan Rickman</cast>
+
+		<release_date>July 13, 2007</release_date>
+	</trailer>
+</trailers>
