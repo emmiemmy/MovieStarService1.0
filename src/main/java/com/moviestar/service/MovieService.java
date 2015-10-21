@@ -127,6 +127,7 @@ public class MovieService {
 
 			response = Unirest.get("http://www.omdbapi.com")
 					.queryString("format", "json")
+					.queryString("plot", "full")
 					.queryString("t", movieTitle).asJson();
 
 			System.out.println(response.getBody());
