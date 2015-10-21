@@ -1,7 +1,5 @@
 target/
 *.classpath
-*.jar
-*.xml
 *.project
 *.jar
 *.class
