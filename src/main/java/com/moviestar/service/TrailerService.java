@@ -16,6 +16,11 @@ import com.moviestar.entity.TrailerXML;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import javax.xml.bind.*;
 
 /**
@@ -24,10 +29,13 @@ import javax.xml.bind.*;
  * @author Evy
  *
  */
+@Path("/trailer")
 public class TrailerService {
 
-	// public void getTrailer(String request) {
-	public static void main(String[] args) {
+	@Path("/{trailerID}")
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	 public static void getTrailer(@PathParam("trailerID") String id) {
 		HttpClient httpClient = null;
 		HttpGet httpGet = null;
 		HttpResponse response = null;
@@ -38,8 +46,11 @@ public class TrailerService {
 		try {
 			// Skapar klienten som kallar på APIt.
 			httpClient = HttpClients.createDefault();
-			httpGet = new HttpGet(
-					"http://simpleapi.traileraddict.com/The-Shining/trailer");
+//			httpGet = new HttpGet(
+//					"http://simpleapi.traileraddict.com/The-Shining/trailer");
+//			String url = "http://v.traileraddict.com/" + id;
+			String url = "http://v.traileraddict.com/12";
+			httpGet = new HttpGet(url);
 
 			// Anropar APIt och verifierar att allt gått bra.
 			response = httpClient.execute(httpGet);
@@ -74,4 +85,8 @@ public class TrailerService {
 			e.printStackTrace();
 		}
 	}
+	 
+	 public static void main(String[] args) {
+		 getTrailer(null);
+	 }
 }
