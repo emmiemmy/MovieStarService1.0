@@ -1,6 +1,7 @@
 package com.moviestar.service;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.StringReader;
 
 import javax.ws.rs.GET;
@@ -22,7 +23,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.w3c.dom.CDATASection;
 
-import com.moviestar.entity.Trailer;
+//import com.moviestar.entity.Trailer;
 import com.moviestar.entity.TrailerE;
 import com.moviestar.entity.Trailers;
 
@@ -85,9 +86,10 @@ public class EmmaTrailer {
 		
 	}
 	
-//	public static void main(String[] args) throws Exception {
-//		EmmaTrailer run = new EmmaTrailer();
+	public static void main(String[] args) throws Exception {
+		EmmaTrailer run = new EmmaTrailer();
 //		run.demoGetRESTAPI();
-//	}
+//		run.getTrailer("heat");
+	}
 
 }

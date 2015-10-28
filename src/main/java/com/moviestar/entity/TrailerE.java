@@ -69,7 +69,7 @@ public class TrailerE {
 		return embed;
 	}
 	@XmlElement
-	public void setIframe(){
+	public void setIframe(String iframe){
 		String startTag = "<iframe>";
 		String endTag = "</iframe>";
         int beginIndex = embed.indexOf(startTag) + startTag.length();
