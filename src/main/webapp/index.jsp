@@ -8,6 +8,7 @@
 	<h3>Readme</h3>
 	<p>1. /api/collection/{movietitle} - enter movietitle to get info about a movie</p>
 	<p>2. /api/version/check - to check api version</p>
+	<p>2. /api/watchtrailer/{movietitle} - fetch trailer for movie</p>
 	
 </body>
 </html>
