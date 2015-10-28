@@ -37,8 +37,8 @@ public class EmmaTrailer {
 	public TrailerE getTrailer(@PathParam("movietitle")String title) throws Exception
 	{
 		String link = "";
-		String movieTitle = title;
-		String url = "http://api.traileraddict.com/?film=" + title + "&count=1";
+		String movieTitle = title.replaceAll(" ", "-");
+		String url = "http://api.traileraddict.com/?film=" + movieTitle + "&count=1";
 	    CloseableHttpClient httpClient = HttpClients.createDefault();
 	    try
 	    {
