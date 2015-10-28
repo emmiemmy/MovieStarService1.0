@@ -76,7 +76,8 @@ public class EmmaTrailer {
 	        //Verify the populated object
 	        link = trailers.getTrailer().getLink();
 	        System.out.println(link);
-	        System.out.println("IFRAME: " + trailers.getTrailer().getIframe());
+	        trailers.getTrailer().setTrailerLink();
+	        System.out.println("Länk: " + trailers.getTrailer().getTrailerLink());
 	        return trailers.getTrailer();
 	    }
 	    finally

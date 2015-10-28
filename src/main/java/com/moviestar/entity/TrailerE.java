@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.sun.xml.internal.ws.util.xml.CDATA;
 
-@XmlType(propOrder = { "title", "link", "pubDate", "embed", "iframe" })
+@XmlType(propOrder = { "title", "link", "pubDate", "embed" })
 @XmlRootElement(name = "trailer")
 public class TrailerE {
 
@@ -15,7 +15,7 @@ public class TrailerE {
 	private String trailerId;
 	private String pubDate;
 	private String embed;
-	private String iFrame;
+	private String trailerLink;
 
 	public TrailerE() {
 	}
@@ -64,23 +64,27 @@ public class TrailerE {
 	public String getPubDate() {
 		return pubDate;
 	}
-	
-	public String getEmbed(){
+
+	public String getEmbed() {
 		return embed;
 	}
-	@XmlElement
-	public void setIframe(String iframe){
-		String startTag = "<iframe>";
-		String endTag = "</iframe>";
-        int beginIndex = embed.indexOf(startTag) + startTag.length();
-        int endIndex = embed.indexOf(endTag) -1;
-        this.iFrame =  embed.substring(beginIndex, endIndex);
 
+//	@XmlElement
+	public void setTrailerLink() {
+		String startTag = "src=\"";
+		String endTag = "\"";
+		System.out.println(embed);
+		System.out.println("START: " +startTag);
+		System.out.println("END: " +endTag);
+		int beginIndex = embed.indexOf(startTag) + startTag.length();
+		int endIndex = embed.indexOf(endTag, beginIndex);
+		System.out.println(beginIndex);
+		System.out.println(endIndex);
+		this.trailerLink = "http:" + embed.substring(beginIndex, endIndex);
 	}
-	
-	public String getIframe(){
-		return iFrame;
+
+	public String getTrailerLink() {
+		return trailerLink;
 	}
-	
 
 }
