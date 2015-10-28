@@ -32,7 +32,8 @@ public class EmmaTrailer {
 
 	@Path("/{movietitle}")
 	@GET
-	@Produces(MediaType.TEXT_XML)
+//	@Produces(MediaType.TEXT_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public TrailerE getTrailer(@PathParam("movietitle")String title) throws Exception
 	{
 		String link = "";
