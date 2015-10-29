@@ -56,7 +56,8 @@ public class MovieService {
 		} catch (UnirestException e) {
 			e.printStackTrace();
 			
-		} catch (IOException e) {
+	} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 		return result;

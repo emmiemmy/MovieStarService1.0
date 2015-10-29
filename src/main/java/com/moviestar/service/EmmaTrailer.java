@@ -1,4 +1,4 @@
-package com.moviestar.service;
+ package com.moviestar.service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -73,7 +73,7 @@ public class EmmaTrailer {
 	        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 	        Trailers trailers = (Trailers) jaxbUnmarshaller.unmarshal(new StringReader(apiOutput));
 	         
-	        //Verify the populated object
+//	        Verify the populated object
 	        link = trailers.getTrailer().getLink();
 	        System.out.println(link);
 	        trailers.getTrailer().setTrailerLink();
