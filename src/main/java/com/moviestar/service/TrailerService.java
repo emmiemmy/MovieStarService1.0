@@ -74,10 +74,14 @@ public class TrailerService {
 	        Trailers trailers = (Trailers) jaxbUnmarshaller.unmarshal(new StringReader(apiOutput));
 	         
 //	        Verify the populated object
-	        link = trailers.getTrailer().getLink();
-	        System.out.println(link);
+//	        link = trailers.getTrailer().getLink();
+//	        System.out.println(link);
+	        try{
 	        trailers.getTrailer().setTrailerLink();
-	        System.out.println("Länk: " + trailers.getTrailer().getTrailerLink());
+	        }catch (Exception e){
+	        	System.out.println("Finns ingen länk att hämta");
+	        }
+//	        System.out.println("Länk: " + trailers.getTrailer().getTrailerLink());
 	        return trailers.getTrailer();
 	    }
 	    finally

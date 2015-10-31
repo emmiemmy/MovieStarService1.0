@@ -15,7 +15,7 @@ public class TrailerE {
 	private String trailerId;
 	private String pubDate;
 	private String embed;
-	private String trailerLink;
+	private String trailerLink = null;
 
 	public TrailerE() {
 	}
