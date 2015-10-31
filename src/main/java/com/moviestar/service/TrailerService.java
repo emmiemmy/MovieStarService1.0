@@ -24,7 +24,7 @@ import org.apache.http.util.EntityUtils;
 import org.w3c.dom.CDATASection;
 
 //import com.moviestar.entity.Trailer;
-import com.moviestar.entity.TrailerE;
+import com.moviestar.entity.Trailer;
 import com.moviestar.entity.Trailers;
 
 @Path("/watchtrailer")
@@ -34,7 +34,7 @@ public class TrailerService {
 	@GET
 //	@Produces(MediaType.TEXT_XML)
 	@Produces(MediaType.APPLICATION_JSON)
-	public TrailerE getTrailer(@PathParam("movietitle")String title) throws Exception
+	public Trailer getTrailer(@PathParam("movietitle")String title) throws Exception
 	{
 		String link = "";
 		String movieTitle = title.replaceAll(" ", "-");

@@ -8,17 +8,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Trailers {
 
-	TrailerE trailers;
+	Trailer trailers;
 
 	@XmlElement(name = "trailer")
-	public void setTrailers(TrailerE trailers) {
+	public void setTrailers(Trailer trailers) {
 
 		this.trailers = trailers;
 
 	}
 	
 //	@XmlElement(name = "trailer")
-	public TrailerE getTrailer(){
+	public Trailer getTrailer(){
 		return trailers;
 	}
 
