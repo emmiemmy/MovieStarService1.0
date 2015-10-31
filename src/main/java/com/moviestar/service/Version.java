@@ -4,6 +4,12 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/version")
+
+/**
+ * Class version.
+ * Representerar nuvarande version.
+ *
+ */
 public class Version {
 	
 
