@@ -6,6 +6,12 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.sun.xml.internal.ws.util.xml.CDATA;
 
+/**
+ * Klassen representerar en Trailer med lämpliga attribut. Klassen används för att vi skall kunna hantera XML data
+ * @author Emma Shakespeare, Evelyn Gustavsson, Jody O'neill
+ * XmlType hanterar XML datan och de "taggar" som denna innehåller. Vi lagrar denna i vårt java objekt
+ *
+ */
 @XmlType(propOrder = { "title", "link", "pubDate", "embed" })
 @XmlRootElement(name = "trailer")
 public class Trailer {
