@@ -52,14 +52,14 @@ public class MovieService {
 			
 			result = envelope.toString();
 
-			 Unirest.shutdown();
+//			 Unirest.shutdown();
 		} catch (UnirestException e) {
 			e.printStackTrace();
 			
 	} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
+//		catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		return result;
 		
 	}
