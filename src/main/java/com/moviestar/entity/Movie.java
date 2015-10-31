@@ -2,7 +2,11 @@ package com.moviestar.entity;
 
 import java.util.HashMap;
 import java.util.Map;
-
+/**
+ * Klassen representerar en Film med lämpliga attribut
+ * @author Emma Shakespeare, Evelyn Gustavsson, Jody O'neill
+ *
+ */
 public class Movie {
 	
 	private String title;
