@@ -26,15 +26,25 @@ import org.w3c.dom.CDATASection;
 //import com.moviestar.entity.Trailer;
 import com.moviestar.entity.Trailer;
 import com.moviestar.entity.Trailers;
-
+/**
+ * Klassen kommunicerar med TrailerAddicts API. Då Traileraddict bara pratar XML måste vi använda oss av unmarschalling.
+ * @author Emma Shakespeare, Evelyn Gustavsson, Jody O'neill
+ *
+ */
 @Path("/watchtrailer")
 public class TrailerService {
 
+	/**
+	 * Metoden skapar ett GET request till traileraddicts API. Användarens inmatade data hanteras som inparametrar.
+	 * @param title - den filmtitel som skall sökas efter
+	 * @return - En representation av resursen som JSON format
+	 * @throws Exception
+	 */
 	@Path("/{movietitle}")
 	@GET
 //	@Produces(MediaType.TEXT_XML)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Trailer getTrailer(@PathParam("movietitle")String title) throws Exception
+	public Trailer getTrailer(@PathParam("movietitle") String title) throws Exception
 	{
 		String link = "";
 		String movieTitle = title.replaceAll(" ", "-");
@@ -42,60 +52,49 @@ public class TrailerService {
 	    CloseableHttpClient httpClient = HttpClients.createDefault();
 	    try
 	    {
-	        //Define a HttpGet request; You can choose between HttpPost, HttpDelete or HttpPut also.
-	        //Choice depends on type of method you will be invoking.
+	        //Definiera ett Http Request, GET i dett afall då det bara skall hämtas information från aktuellt API
 	        HttpGet getRequest = new HttpGet(url);
 	         
-	        //Set the API media type in http accept header
+	        //Ange mediatyp so API accepterar
 	        getRequest.addHeader("accept", "application/xml");
 	          
-	        //Send the request; It will immediately return the response in HttpResponse object
+	        //Skicka förfrågan till aktuellt API
 	        HttpResponse response = httpClient.execute(getRequest);
 	         
-	        //verify the valid error code first
+	        //validera svarskoden
 	        int statusCode = response.getStatusLine().getStatusCode();
 	        if (statusCode != 200)
 	        {
 	            throw new RuntimeException("Failed with HTTP error code : " + statusCode);
 	        }
 	         
-	        //Now pull back the response object
+	        //Ta emot svaret
 	        HttpEntity httpEntity = response.getEntity();
 	        String apiOutput = EntityUtils.toString(httpEntity);
 	         
-	        //Lets see what we got from API
-	        System.out.println(apiOutput); //<user id="10"><firstName>demo</firstName><lastName>user</lastName></user>
-	        
+	        //Skriv ut den information som mottagits i consolen
+	        System.out.println(apiOutput); 	        
 	         
-	        //In realtime programming, you will need to convert this http response to some java object to re-use it.
-	        //Lets see how to jaxb unmarshal the api response content
+	        //Eftersom informationen mottags som XML måsta vi unmarshalla
+	        //Görs med JAXB
 	        JAXBContext jaxbContext = JAXBContext.newInstance(Trailers.class);
 	        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 	        Trailers trailers = (Trailers) jaxbUnmarshaller.unmarshal(new StringReader(apiOutput));
 	         
-//	        Verify the populated object
-//	        link = trailers.getTrailer().getLink();
-//	        System.out.println(link);
+	        //Anropa metod som hanterar CDATA och plockar ut vääsentlig information
 	        try{
 	        trailers.getTrailer().setTrailerLink();
 	        }catch (Exception e){
 	        	System.out.println("Finns ingen länk att hämta");
 	        }
-//	        System.out.println("Länk: " + trailers.getTrailer().getTrailerLink());
 	        return trailers.getTrailer();
 	    }
 	    finally
 	    {
-	        //Important: Close the connect
+	        //Stäng uppkopplingen
 	        httpClient.close();
 	    }
 		
 	}
-	
-//	public static void main(String[] args) throws Exception {
-//		TrailerService run = new TrailerService();
-//		run.demoGetRESTAPI();
-//		run.getTrailer("heat");
-//	}
 
 }
