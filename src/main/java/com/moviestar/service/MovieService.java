@@ -1,17 +1,11 @@
 package com.moviestar.service;
 import java.io.IOException;
 import java.util.Map;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
-//import org.codehaus.jettison.json.JSONArray;
-//import org.codehaus.jettison.json.JSONObject;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -26,10 +20,25 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 /**
  * Klassen hämtar information från api omdb.com
  * @author emmashakespeare, evelyn, juicy
+ * 
+ * @Path		URI-endpointen. så att man hittar till klassen.
  *
  */
+
 @Path("/collection")
 public class MovieService {
+
+	/**
+	 * Metod getMovie som hämtar ett response från omdbapi.com, har parametern movietitle som läggs till i query-strängen.
+	 * metoden retunrnerar resultatet i en String.
+	 * @param movieTitle	String. Titel på film som skall sökas efter.
+	 * @return result		String. Resultatet från söningen i jason format.
+	 * 
+	 * 
+	 * @Path		URI end-pointen. så att man kan hitta till metoden.
+	 * @Get			Metod som anropet skall använda mot api't.
+	 * @Produces 	Returtyp som skall genereas.
+	 */
 
 	@Path("/{movietitle}")
 	@GET
